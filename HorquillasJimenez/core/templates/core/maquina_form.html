@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    
+    <h1>Registrar Maquinas</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="codigo">Codigo:</label>
+            {{ form.codigo }}
+            {{ form.codigo.errors }}
+        </div>
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            {{ form.modelo }}
+            {{ form.modelo.errors }}
+        </div>
+        <div class="form-group">
+            <label for="operador">Operador:</label>
+            {{ form.operador }}
+            {{ form.operador.errors }}
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            {{ form.estado }}
+            {{ form.estado.errors }}
+        </div>
+
+        
+        
+
+        <div class="form-group is-grouped mt-3">
+            <button class="btn btn-success">Registrar Maquina</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Gestionar Maquinas</h1>
+
+<table class="table text-bg-light">
+    {% if maquina_list %}
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Modelo</th>
+            <th>Operador</th>
+            <th>Estado</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in maquina_list %}
+
+        <tr>
+            <td>{{ m.codigo }}</td>
+            <td>{{ m.modelo }}</td>
+            <td>{{ m.operador }}</td>
+            <td>{{ m.estado }}</td>
+                        
+            <td><a href="{% url 'maquina_edit' m.codigo %}" class="btn btn-info">Editar</a></td>
+            <td><a href="{% url 'maquina_deleted' m.codigo %}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+            
+        </tr>
+
+        {% endfor %}
+
+        {% else %}
+
+        <h3>No se encuentran maquinas registradas</h3>
+
+        {% endif %}  
+
+        
+
+    </tbody>
+</table>
+
+{% endblock %}
